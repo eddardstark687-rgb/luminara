@@ -3,16 +3,16 @@
 const artworks = [
     { filename: 'benedict.jpeg', title: 'Benedict Cumberbatch', medium: 'Color Pencil portrait drawing on Ivory sheet', dateCreated: 'November 2025' },
     { filename: 'captain.jpeg', title: 'Captain America', medium: 'Color Pencil portrait drawing on Ivory sheet', dateCreated: 'December 2022' },
-    { filename: 'captainmarvel.jpeg', title: 'Captain Marvel', medium: 'Color Pencil portrait drawing on Ivory sheet', dateCreated: 'March 2025' },
-    { filename: 'daredevil.jpeg', title: 'Daredevil', medium: 'Color Pencil on Bristol Board', dateCreated: 'July 2023' },
+    { filename: 'captainmarvel.jpeg', title: 'Captain Marvel', medium: 'Color Pencil portrait drawing on Ivory sheet', dateCreated: 'March 2023' },
+    { filename: 'daredevil.jpeg', title: 'Daredevil', medium: 'Color Pencil on Bristol Board', dateCreated: 'July 2025' },
     { filename: 'flash.jpeg', title: 'The Flash', medium: 'Color Pencil portrait drawing on Ivory sheet', dateCreated: 'May 2023' },
     { filename: 'homelander.jpeg', title: 'Homelander', medium: 'Color Pencil portrait drawing on Ivory sheet', dateCreated: 'May 2025' },
     { filename: 'johnshelby.jpeg', title: 'John Shelby (Peaky Blinders)', medium: 'Color Pencil portrait drawing on Ivory sheet', dateCreated: 'January 2025' },
     { filename: 'leomessi.jpeg', title: 'Lionel Messi', medium: 'Color Pencil portrait drawing on Ivory sheet', dateCreated: 'March 2024' },
     { filename: 'martha.jpeg', title: 'Martha', medium: 'Color Pencil portrait drawing on Ivory sheet', dateCreated: 'May 2025' },
-    { filename: 'melisandre.jpeg', title: 'Melisandre', medium: 'Color Pencil portrait drawing on Ivory sheet', dateCreated: 'August 2023' },
-    { filename: 'tony.jpeg', title: 'Tony Stark', medium: 'Color Pencil portrait drawing on Ivory sheet', dateCreated: 'April 2025' },
-    { filename: 'wolverine.jpeg', title: 'Wolverine', medium: 'Color Pencil portrait drawing on Ivory sheet', dateCreated: 'July 2025' }
+    { filename: 'melisandre.jpeg', title: 'Melisandre', medium: 'Color Pencil portrait drawing on Ivory sheet', dateCreated: 'August 2025' },
+    { filename: 'tony.jpeg', title: 'Tony Stark', medium: 'Color Pencil portrait drawing on Ivory sheet', dateCreated: 'April 2023' },
+    { filename: 'wolverine.jpeg', title: 'Wolverine', medium: 'Color Pencil portrait drawing on Ivory sheet', dateCreated: 'July 2024' }
 ];
 
 const container = document.getElementById('artwork-container');
