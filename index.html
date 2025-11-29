@@ -1,313 +1,84 @@
-body,
-html {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background:url('https://grainy-gradients.vercel.app/noise.svg');
-  background-blend-mode: soft-light;
-  animation: noise 8s steps(10) infinite;
-}
-
-@keyframes noise {
-  0%, 100% { background-position: 0 0; }
-  10% { background-position: 50px 30px; }
-  20% { background-position: -20px 80px; }
-  /* … keep adding random offsets … */
-}
-header,
-main,
-section,
-.title-container {
-  position: relative;
-  z-index: 2;
-}
-:root {
-    --bg-color: #0a0a0a;
-    --card-bg: #141414;
-    --text-main: #e0e0e0;
-    --text-muted: #888888;
-    --accent: #d4af37; /* Metallic Gold (Kept for Headings/Buttons) */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luminara, a portfolio by Pranav P R | Color Pencil Portrait Art</title>
+    <meta name="description" content="Luminara: An exclusive portfolio showcasing the color pencil portraits by Pranav P R.">
     
-    /* FRAME COLOR VARIABLES: Red-Orange Palette */
-    --frame-gradient-start: #d18148; 
-    --frame-gradient-end: #746161;   
-    --frame-border-color: #d19480;    
-    --frame-glow-color: rgba(58, 66, 102, 0.6); 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
     
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Lato', sans-serif;
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-    background-color: var(--bg-color); 
-    color: var(--text-main);
-    font-family: var(--font-body);
-    overflow-x: hidden;
-    line-height: 1.6;
-    background-attachment: fixed; 
-}
-
-/* --- LIVE BACKGROUND CONTAINER --- */
-.live-background-container {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    z-index: -2; 
-    background-size: cover;
-    background-position: center;
-    transition: background-image 2s ease-in-out; /* Smooth transition */
-}
-
-/* Dark Overlay to keep the content readable */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--bg-color); 
-    opacity: 0.9; 
-    z-index: -1; 
-}
-
-
-/* Loader */
-.loader {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-    background: #000; z-index: 9999;
-    display: flex; justify-content: center; align-items: center;
-}
-.loader-text {
-    font-family: var(--font-heading);
-    font-size: 3rem; color: var(--accent);
-    opacity: 0; animation: fadeLoader 2s ease forwards;
-}
-
-@keyframes fadeLoader { 0% {opacity: 0;} 50% {opacity: 1;} 100% {opacity: 1;} }
-
-/* Navigation */
-nav {
-    position: fixed; top: 0; width: 100%; padding: 20px 50px;
-    display: flex; justify-content: space-between; align-items: center;
-    z-index: 100; mix-blend-mode: difference; 
-}
-nav .logo, nav .nav-links a { color: #fff; }
-.logo { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; }
-.nav-links { display: flex; gap: 30px; list-style: none; }
-.nav-links a { text-decoration: none; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
-
-/* Hero */
-.hero {
-    height: 100vh; display: flex; flex-direction: column;
-    justify-content: center; align-items: center;
-    text-align: center; position: relative;
-    overflow: hidden; 
-}
-.hero-bg-overlay {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.65); 
-    z-index: 1;
-}
-.hero-content {
-    position: relative;
-    z-index: 2; 
-    color: #fff;
-    text-shadow: 0 0 18px rgba(0,0,0,0.9); 
-}
-.hero h1 { font-family: var(--font-heading); font-size: 5rem; line-height: 1.1; margin-bottom: 20px; }
-.subtitle { color: var(--accent); letter-spacing: 3px; text-transform: uppercase; font-size: 1.1rem; }
-
-/* Gallery - Masonry Layout */
-.gallery-section { padding: 100px 5%; }
-.section-header { text-align: center; margin-bottom: 60px; }
-.section-header h2 { font-family: var(--font-heading); font-size: 3rem; }
-.line { width: 80px; height: 3px; background: var(--accent); margin: 20px auto; }
-
-.masonry-grid {
-    column-count: 3;
-    column-gap: 30px; 
-}
-
-.art-item {
-    break-inside: avoid;
-    margin-bottom: 30px; 
-    position: relative;
-    cursor: pointer;
-    overflow: hidden;
-    border-radius: 4px; 
-    background: var(--card-bg); 
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4); 
-    transition: transform 0.4s ease, box-shadow 0.4s ease; 
-}
-
-/* --- Colorful and Dynamic Frame Styling (Red-Orange) --- */
-.frame {
-    padding: 8px; 
-    background: var(--frame-border-color); 
-    position: relative;
-    overflow: hidden; 
-    border-radius: 6px; 
+    <link rel="stylesheet" href="style.css">
     
-    /* Default subtle red-orange gradient for base look */
-    box-shadow: 
-        inset 0 0 10px rgba(0,0,0,0.7), 
-        0 0 0 3px var(--frame-border-color); 
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body style="background: url('.background.jpeg');">
+
+    <div class="loader">
+        <div class="loader-text">Luminara.</div>
+    </div>
     
-    /* Default gradient behind the image */
-    background: linear-gradient(45deg, var(--frame-gradient-start) 20%, var(--frame-gradient-end) 80%); 
-    transition: all 0.5s ease;
-}
+    <div id="live-background" class="live-background-container"></div> 
 
-/* Image inside the frame */
-.art-item img {
-    width: 100%;
-    display: block;
-    border-radius: 2px; 
-    transition: transform 0.6s ease, filter 0.6s ease;
-    filter: saturate(90%) brightness(95%); 
-    box-shadow: inset 0 0 15px rgba(0,0,0,0.5); 
-}
+    <nav>
+        <div class="logo">PRANAV P R</div>
+        <ul class="nav-links">
+            <li><a href="#gallery">Collection</a></li>
+            <li><a href="#about">Artist</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-.art-overlay {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.7); 
-    opacity: 0; transition: opacity 0.4s ease;
-    display: flex; flex-direction: column; justify-content: center; align-items: center;
-    text-align: center;
-    z-index: 10; 
-}
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="reveal-text website-title">LUMINARA</h1>
+            
+            <p class="subtitle reveal-text">AN ART Portfolio by Pranav P R</p>
+            
+        </div>
+        <div class="hero-bg-overlay"></div>
+    </header>
 
-/* --- Hover Effects for Frame and Image --- */
-.art-item:hover {
-    transform: translateY(-12px); 
-    box-shadow: 0 15px 30px rgba(0,0,0,0.6); 
-}
+    <section id="gallery" class="gallery-section">
+        <div class="section-header">
+            <h2>My Works</h2>
+            <div class="line"></div>
+        </div>
+        
+        <div class="masonry-grid" id="artwork-container">
+            </div>
+    </section>
 
-.art-item:hover img { 
-    transform: scale(1.03); 
-    filter: saturate(100%) brightness(100%); 
-}
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <div class="about-text">
+                <h3>About ME</h3>
+                <p>Hello, I'm Pranav P R, a dedicated color pencil portrait artist. My passion lies in bringing faces to life, exploring the nuanced expressions and intricate details that make each individual unique. Using professional-grade color pencils on premium Bristol board, I build layers upon layers of pigment to achieve hyper-realistic textures and vibrant, emotional depth. Each portrait is a journey of meticulous observation and careful rendering, aiming to capture not just a likeness, but the very essence and soul of the subject. I believe that a great portrait should tell a story, and I strive for every piece to resonate with beauty, character, and timeless artistry.</p>
+            </div>
+        </div>
+    </section>
 
-.art-item:hover .frame {
-    /* Dynamic, glowing gradient border on hover: Intense Red-Orange */
-    background: linear-gradient(135deg, #524440, #7c5f5f, #f89a57); 
-    box-shadow: 
-        0 0 0 4px var(--frame-gradient-start), 
-        0 0 25px 5px var(--frame-glow-color), /* Fiery glow */
-        inset 0 0 20px rgba(0,0,0,0.8); 
-    border-color: transparent; 
-}
+    <div id="lightbox" class="lightbox">
+        <button class="close-lightbox"><i data-feather="x"></i></button>
+        <button class="nav-btn prev"><i data-feather="chevron-left"></i></button>
+        <button class="nav-btn next"><i data-feather="chevron-right"></i></button>
+        
+        <div class="lightbox-content">
+            <img src="" alt="Artwork Fullscreen" id="lightbox-img">
+            <div class="lightbox-details">
+                <h4 id="lb-title">Title</h4>
+                <p id="lb-medium">Medium</p>
+                <p id="lb-date" class="lightbox-date"></p>
+            </div>
+        </div>
+    </div>
 
-.art-item:hover .art-overlay { opacity: 1; }
-
-.art-title { 
-    font-family: var(--font-heading); font-size: 1.6rem; color: #fff; 
-    transform: translateY(20px); transition: transform 0.4s ease; 
-    text-shadow: 0 3px 8px rgba(0,0,0,0.9); 
-}
-.art-item:hover .art-title { transform: translateY(0); }
-/* --- END Colorful Frame Styling --- */
-
-
-/* About & Contact (Accent color remains Gold) */
-.about-section { background: var(--card-bg); padding: 100px 10%; text-align: center; }
-.about-text h3 { font-family: var(--font-heading); font-size: 2.8rem; margin-bottom: 25px; color: var(--accent); } 
-.about-text p { max-width: 750px; margin: 0 auto; line-height: 1.8; font-size: 1.15rem; color: var(--text-muted); } 
-
-footer { padding: 80px 20px; text-align: center; background: var(--card-bg); border-top: 1px solid #1f1f1f; }
-footer h3 { font-family: var(--font-heading); font-size: 2rem; color: var(--text-main); margin-bottom: 15px; }
-footer p { color: var(--text-muted); margin-bottom: 30px; }
-
-.btn-contact {
-    display: inline-block; margin-top: 20px; padding: 15px 40px;
-    border: 1px solid var(--accent); color: var(--accent);
-    text-decoration: none; transition: all 0.3s;
-    text-transform: uppercase; letter-spacing: 1px;
-    border-radius: 3px; 
-}
-.btn-contact:hover { 
-    background: var(--accent); color: var(--bg-color); 
-    box-shadow: 0 0 25px 3px var(--frame-glow-color); 
-}
-.socials { margin-top: 40px; display: flex; justify-content: center; gap: 25px; }
-.socials i { stroke: var(--text-muted); transition: 0.3s; width: 24px; height: 24px; }
-.socials i:hover { stroke: var(--accent); transform: translateY(-3px) scale(1.1); } 
-.copyright { margin-top: 30px; font-size: 0.8rem; color: #444; }
-
-/* Lightbox */
-.lightbox {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.99); 
-    z-index: 1000;
-    display: flex; justify-content: center; align-items: center;
-    opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
-}
-.lightbox.active { opacity: 1; pointer-events: all; }
-.lightbox-content { position: relative; max-width: 90%; max-height: 85vh; text-align: center; }
-.lightbox-content img { 
-    max-height: 80vh; max-width: 100%; 
-    box-shadow: 0 0 100px var(--frame-glow-color); 
-    border: 3px solid var(--frame-gradient-start); 
-    border-radius: 4px;
-}
-.lightbox-details { margin-top: 30px; } 
-.lightbox-details h4 { font-family: var(--font-heading); font-size: 2.2rem; color: var(--accent); margin-bottom: 8px; } 
-.lightbox-details p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 5px; }
-
-.lightbox-date {
-    font-size: 1rem;
-    color: #999; 
-    margin-top: 5px;
-}
-
-.nav-btn, .close-lightbox {
-    position: absolute; background: none; border: none; color: #fff; cursor: pointer;
-    transition: transform 0.2s, color 0.2s;
-    padding: 10px;
-    text-shadow: 0 0 10px rgba(0,0,0,0.7); 
-}
-.close-lightbox { top: 25px; right: 25px; transform: scale(1.9); } 
-.nav-btn { top: 50%; transform: translateY(-50%) scale(1.6); } 
-.prev { left: 25px; }
-.next { right: 25px; }
-.nav-btn:hover, .close-lightbox:hover { color: var(--accent); transform: scale(2.2); }
-
-
-/* Responsive */
-@media (max-width: 1024px) {
-    .masonry-grid { column-count: 2; column-gap: 20px; }
-    .hero h1 { font-size: 4rem; }
-    .lightbox-details h4 { font-size: 1.8rem; }
-    .lightbox-details p { font-size: 1.05rem; }
-}
-@media (max-width: 768px) {
-    .masonry-grid { column-count: 1; column-gap: 0; }
-    .art-item { margin-bottom: 25px; }
-    .hero h1 { font-size: 3rem; }
-    .subtitle { font-size: 0.9rem; }
-    nav { padding: 15px 20px; }
-    .nav-links { display: none; } 
-    .close-lightbox { top: 15px; right: 15px; transform: scale(1.5); }
-    .nav-btn { top: 50%; transform: translateY(-50%) scale(1.2); }
-    .hero-content { padding: 0 20px; }
-    .about-text h3 { font-size: 2.2rem; }
-    .about-text p { font-size: 1rem; }
-    footer h3 { font-size: 1.6rem; }
-    .lightbox-details h4 { font-size: 1.5rem; }
-    .lightbox-details p { font-size: 0.95rem; }
-}
-@media (max-width: 480px) {
-    .hero h1 { font-size: 2.5rem; }
-    .subtitle { font-size: 0.8rem; letter-spacing: 2px; }
-    .section-header h2 { font-size: 2rem; }
-    .about-text h3 { font-size: 1.8rem; }
-    .about-text p { font-size: 0.9rem; }
-    footer h3 { font-size: 1.5rem; }
-    .btn-contact { padding: 12px 30px; font-size: 0.9rem; }
-    .socials i { width: 20px; height: 20px; }
-}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>
